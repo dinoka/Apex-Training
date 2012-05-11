@@ -6,7 +6,7 @@ global with sharing class DeleteInactiveSurveys implements Database.Batchable<sO
    	}
    	
    	global void execute(Database.BatchableContext BC, List<Survey__c> surveys){
-	    //delete surveys;
+	    delete surveys;
    	}
    	
    	global void finish(Database.BatchableContext BC){
