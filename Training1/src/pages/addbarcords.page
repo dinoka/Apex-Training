@@ -1,6 +1,4 @@
 <apex:page controller="AddBarCords">
-    <!-- Header components --> 
-    <c:Header_comp />
 
     <apex:form >
         <apex:pageBlock >        
