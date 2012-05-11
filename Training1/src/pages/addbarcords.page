@@ -1,0 +1,57 @@
+<apex:page controller="AddBarCords" sidebar="false">
+  <!-- Begin Default Content REMOVE THIS -->
+
+<c:Header_comp text="Sample App"></c:Header_comp>
+
+
+<apex:pageBlock id="testing">
+<apex:form >
+    <apex:pageBlockSection >
+
+        <apex:inputText value="{!BIR}" required="true" label="BIR"/>
+        <apex:inputText value="{!IPN}" required="true" label="IPN"/>
+    
+        <apex:commandButton reRender="testing" style="text-align: left;" value="Validate"  action="{!validate}"/>  
+    </apex:pageBlockSection>
+    
+    <apex:pageBlockSection >
+        <apex:outputPanel > 
+            <apex:pageMessages ></apex:pageMessages>
+        </apex:outputPanel>
+    </apex:pageBlockSection>
+    
+</apex:form>
+<apex:form >
+
+    <apex:pageBlockSection id="Emp_info" rendered="{!empFound}" columns="1">
+        <apex:outputField value="{!employee.Employee_Name__c}" />
+
+        <apex:pageBlockSectionItem >
+        <apex:outputLabel value="Country"/>
+        <apex:actionRegion >
+        <apex:inputField value="{!employee.Country__c}" label="sadf" >
+            <apex:actionSupport event="onchange" rerender="testing" action="{!changeCities}" 
+                                                      status="status"/>
+        </apex:inputField>
+        </apex:actionRegion>
+        </apex:pageBlockSectionItem>
+        
+        
+       
+        <apex:selectList value="{!employee.City__c}"  multiselect="false" size="1" label="City">
+           <apex:selectOptions value="{!currentCities}"/>
+        </apex:selectList>
+
+        <br/>
+        
+        <apex:inputTextarea value="{!barcords}" required="true" label="Barcord" cols="60" rows="10"/>
+        
+        <br/><br/>
+
+        <apex:commandButton value="Clear" action="{!clearBarcordArea}"/>
+        <apex:commandButton value="Save" action="{!saveBarcords}"/>
+    </apex:pageBLockSection>
+</apex:form>
+</apex:pageBlock>
+
+</apex:page>

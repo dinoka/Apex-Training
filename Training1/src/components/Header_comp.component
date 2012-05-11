@@ -1,0 +1,14 @@
+<apex:component >
+    <apex:attribute name="text" 
+           description="The contents of the box."
+           type="String" required="true"/> 
+    <apex:attribute name="logo" 
+           description="The Image"
+           type="String" required="false"/>
+
+<apex:image value="{!$Resource.company_logo}"/>
+<apex:outputPanel >
+<apex:outputText style="text-align:right;"  value="{! text}"/>
+</apex:outputPanel>
+
+</apex:component>

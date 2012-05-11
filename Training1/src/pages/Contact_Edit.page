@@ -1,0 +1,46 @@
+<apex:page standardController="Contact" extensions="Contact_Edit">
+<apex:form >
+<apex:pageBlock >
+    <apex:pageblockSection title="Contact">
+        <apex:inputfield value="{!con.FirstName}"/>
+        <apex:inputField value="{!con.LastName}"/>
+        <apex:inputField value="{!con.Email}"/>
+        <apex:inputField value="{!con.MobilePhone}"/>
+    </apex:pageblockSection>
+    
+    <apex:pageBlockSection id="surveyrecords" title="Surveys">
+        <apex:pageblockTable value="{!Surveys}" var="item">
+            <apex:column headerValue="Actions">
+                <apex:commandlink rerender="surveyInput" action="{!editRecord}" value="Edit">
+                    <apex:param name="currentSurveyId" value="{!item.id}"/>
+                </apex:commandlink>&nbsp;
+                <apex:commandlink rerender="surveyrecords" action="{!deleteRecord}" value="Delete">
+                    <apex:param name="currentSurveyId" value="{!item.id}"/>
+                </apex:commandlink>
+            </apex:column>
+            <apex:column value="{!item.Name}"/> 
+            <apex:column value="{!item.question1__c}"/>
+            <apex:column value="{!item.question2__c}"/>
+            <apex:column value="{!item.question3__c}"/>
+            <apex:column value="{!item.question4__c}"/>
+            <apex:column value="{!item.question5__c}"/>
+        </apex:pageblockTable>
+    </apex:pageBlockSection>
+    
+    <apex:pageBlockSection id="surveyInput" title="Edit Survey">
+        <apex:inputField value="{!currentSurvey.Name}"/>
+        <apex:inputField value="{!currentSurvey.Months__c}"/>
+        <apex:inputField value="{!currentSurvey.Year__c}"/>
+        <apex:inputField value="{!currentSurvey.question1__c}"/>
+        <apex:inputField value="{!currentSurvey.question2__c}"/>
+        <apex:inputField value="{!currentSurvey.question3__c}"/>
+        <apex:inputField value="{!currentSurvey.question4__c}"/>
+        <apex:inputField value="{!currentSurvey.question5__c}"/>
+    </apex:pageBlockSection>
+    
+    <apex:commandButton value="Add" action="{!addRecord}"/>
+    <apex:commandButton value="Clear" action="{!clearForm}"/>
+    <apex:commandButton value="Save" action="{!saveRecords}"/>
+</apex:pageBlock>
+</apex:form>
+</apex:page>
