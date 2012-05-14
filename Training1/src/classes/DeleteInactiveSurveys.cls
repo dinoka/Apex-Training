@@ -23,6 +23,6 @@ global with sharing class DeleteInactiveSurveys implements Database.Batchable<sO
    		mail.setUseSignature(false);
    		mail.setPlainTextBody('Surveys has been deleted.');
    		
-   		Messaging.sendEmail(new Messaging.Singleemailmessage[] {mail});
+   		.sendEmail(new Messaging.Singleemailmessage[] {mail});
    	}
 }
