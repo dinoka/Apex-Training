@@ -18,6 +18,7 @@
  * the organization size limit for all Apex scripts.
  *
  * See the Apex Language Reference for more information about Testing and Code Coverage.
+ * testing
  */
 @isTest
 private class Test_Contact_Edit {
