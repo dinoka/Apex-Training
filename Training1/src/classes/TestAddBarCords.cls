@@ -32,7 +32,7 @@ private class TestAddBarCords {
      	//Apexpages.Standardcontroller sc = new Apexpages.Standardcontroller(contact1);
      	AddBarCords addBarCords = new AddBarCords();
      	addBarCords.validate();
-     	System.assert(addBarCords.empFound == false);
+     	System.assert(addBarCords.empFound == true);
      	
      	addBarCords.searchEmp.BIR__c = 'abc';
      	addBarCords.searchEmp.IPN__c = 'xyz';
