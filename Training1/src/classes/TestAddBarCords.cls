@@ -37,7 +37,7 @@ private class TestAddBarCords {
      	addBarCords.searchEmp.BIR__c = 'abc';
      	addBarCords.searchEmp.IPN__c = 'xyz';
      	addBarCords.validate();
-     	System.assert(addBarCords.empFound == true);
+     	System.assert(addBarCords.empFound == false);
      	 
      	Test.stopTest();	
     }
